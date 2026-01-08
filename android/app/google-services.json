@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "711119342324",
+    "project_id": "lamian-happy-money",
+    "storage_bucket": "lamian-happy-money.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711119342324:android:b5710eb1665a9c63e5aca1",
+        "android_client_info": {
+          "package_name": "com.lamiandev.apps.money_lover"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkLWbDHGgszY8l7vEwp3hKyMML29_mmSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711119342324:android:16f77c309be4249de5aca1",
+        "android_client_info": {
+          "package_name": "com.lamiandev.money.lover.happy_money"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkLWbDHGgszY8l7vEwp3hKyMML29_mmSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711119342324:android:a3e1bfed5bd9c3dbe5aca1",
+        "android_client_info": {
+          "package_name": "com.lamiandev.money.lover.money_lover"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkLWbDHGgszY8l7vEwp3hKyMML29_mmSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
