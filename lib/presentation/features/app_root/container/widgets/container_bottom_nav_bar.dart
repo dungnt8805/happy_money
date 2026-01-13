@@ -26,6 +26,7 @@ class _ContainerBottomNavBarState extends State<ContainerBottomNavBar> {
       surfaceTintColor: context.appColors.background,
       height: kBottomNavigationBarHeight,
       padding: const EdgeInsets.symmetric(horizontal: Insets.medium),
+
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

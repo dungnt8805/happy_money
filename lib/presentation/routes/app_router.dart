@@ -7,7 +7,7 @@ import 'package:happy_money/presentation/features/wallet/wallet_screen.dart';
 import 'package:happy_money/presentation/features/app_root/container/container_screen.dart';
 import 'package:happy_money/presentation/features/start/splash/splash_screen.dart';
 import 'package:happy_money/presentation/features/start/onboard/onboard_screen.dart';
-
+import 'package:happy_money/presentation/features/add_transaction/add_transaction_screen.dart';
 part 'app_router.gr.dart';
 
 final appRouter = AppRoute._();
@@ -31,5 +31,6 @@ class AppRoute extends RootStackRouter {
         AutoRoute(page: SettingRoute.page, path: "setting"),
       ],
     ),
+    AutoRoute(page: AddTransactionRoute.page, path: "/add-transaction"),
   ];
 }

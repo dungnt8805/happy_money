@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_money/presentation/features/app_root/constants/container_constants.dart';
 import 'package:happy_money/presentation/features/app_root/container/controller/container_cubit.dart';
-import 'package:happy_money/presentation/features/app_root/container/widgets/container_bottom_nav_bar.dart';
+import 'package:happy_money/presentation/features/app_root/container/widgets/add_transaction_bottom_sheet_modal.dart';
 
 @RoutePage()
 class ContainerScreen extends StatefulWidget {
@@ -15,6 +15,7 @@ class ContainerScreen extends StatefulWidget {
 
 class _ContainerScreenState extends State<ContainerScreen> {
   late ContainerCubit containerCubit;
+
   @override
   void initState() {
     containerCubit = context.read<ContainerCubit>();
@@ -32,6 +33,11 @@ class _ContainerScreenState extends State<ContainerScreen> {
       child: AutoTabsScaffold(
         resizeToAvoidBottomInset: false,
         routes: containerCubit.state.routes,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => showAddTransactionBottomSheetModal(context),
+          shape: CircleBorder(),
+          child: const Icon(Icons.add),
+        ),
         bottomNavigationBuilder: (context, tabsRouter) {
           containerCubit.initializeTabsRouter(tabsRouter);
           return BottomNavigationBar(

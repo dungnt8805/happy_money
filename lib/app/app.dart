@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:happy_money/app/analytics/firebase_analytics.dart';
+import 'package:happy_money/app/app_responsive.dart';
 import 'package:happy_money/app/const/constants.dart';
 import 'package:happy_money/app/themes/app_theme.dart';
 import 'package:happy_money/l10n/app_localizations.dart';
@@ -22,26 +23,28 @@ class App extends StatelessWidget {
               ? SystemUiOverlayStyle.light
               : SystemUiOverlayStyle.dark,
         );
-        return MaterialApp.router(
-          title: kAppName,
-          theme: AppTheme.light,
-          darkTheme: AppTheme.dark,
-          themeMode: state.themeMode,
-          routeInformationParser: appRouter.defaultRouteParser(),
-          routerDelegate: AutoRouterDelegate(
-            appRouter,
-            navigatorObservers: () => [
-              AutoRouteObserver(),
-              FBAnalytics().observer,
+        return AppResponsive(
+          child: MaterialApp.router(
+            title: kAppName,
+            theme: AppTheme.light,
+            darkTheme: AppTheme.dark,
+            themeMode: state.themeMode,
+            routeInformationParser: appRouter.defaultRouteParser(),
+            routerDelegate: AutoRouterDelegate(
+              appRouter,
+              navigatorObservers: () => [
+                AutoRouteObserver(),
+                FBAnalytics().observer,
+              ],
+            ),
+            locale: state.appLocale,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
             ],
           ),
-          locale: state.appLocale,
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
         );
       },
     );
