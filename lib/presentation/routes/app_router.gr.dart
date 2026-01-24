@@ -11,6 +11,22 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [AddCategoryScreen]
+class AddCategoryRoute extends PageRouteInfo<void> {
+  const AddCategoryRoute({List<PageRouteInfo>? children})
+    : super(AddCategoryRoute.name, initialChildren: children);
+
+  static const String name = 'AddCategoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AddCategoryScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [AddTransactionScreen]
 class AddTransactionRoute extends PageRouteInfo<void> {
   const AddTransactionRoute({List<PageRouteInfo>? children})
@@ -38,6 +54,22 @@ class AnalysisRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const AnalysisScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [CategoriesScreen]
+class CategoriesRoute extends PageRouteInfo<void> {
+  const CategoriesRoute({List<PageRouteInfo>? children})
+    : super(CategoriesRoute.name, initialChildren: children);
+
+  static const String name = 'CategoriesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CategoriesScreen();
     },
   );
 }

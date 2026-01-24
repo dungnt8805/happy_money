@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_money/presentation/features/app_root/constants/container_constants.dart';
 import 'package:happy_money/presentation/features/app_root/container/controller/container_cubit.dart';
 import 'package:happy_money/presentation/features/app_root/container/widgets/add_transaction_bottom_sheet_modal.dart';
+import 'package:happy_money/presentation/routes/app_router.dart';
 
 @RoutePage()
 class ContainerScreen extends StatefulWidget {
@@ -34,7 +35,9 @@ class _ContainerScreenState extends State<ContainerScreen> {
         resizeToAvoidBottomInset: false,
         routes: containerCubit.state.routes,
         floatingActionButton: FloatingActionButton(
-          onPressed: () => showAddTransactionBottomSheetModal(context),
+          onPressed: () =>{
+            appRouter.push(AddTransactionRoute())
+          },
           shape: CircleBorder(),
           child: const Icon(Icons.add),
         ),

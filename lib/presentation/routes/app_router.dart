@@ -8,6 +8,9 @@ import 'package:happy_money/presentation/features/app_root/container/container_s
 import 'package:happy_money/presentation/features/start/splash/splash_screen.dart';
 import 'package:happy_money/presentation/features/start/onboard/onboard_screen.dart';
 import 'package:happy_money/presentation/features/add_transaction/add_transaction_screen.dart';
+import 'package:happy_money/presentation/features/category/categories_screen.dart';
+import 'package:happy_money/presentation/features/category/add_category_screen.dart';
+
 part 'app_router.gr.dart';
 
 final appRouter = AppRoute._();
@@ -15,6 +18,7 @@ final appRouter = AppRoute._();
 @AutoRouterConfig(replaceInRouteName: 'Screen|BottomSheet,Route')
 class AppRoute extends RootStackRouter {
   AppRoute._();
+
   @override
   RouteType get defaultRouteType => const RouteType.cupertino();
 
@@ -32,5 +36,11 @@ class AppRoute extends RootStackRouter {
       ],
     ),
     AutoRoute(page: AddTransactionRoute.page, path: "/add-transaction"),
+    AutoRoute(page: CategoriesRoute.page, path: "/categories"),
+    AutoRoute(page: AddCategoryRoute.page, path: "/add-category"),
+    // CustomRoute(page: page)
+    // CustomRoute(page: CategoriesRoute.page, path: "/categories", children: [
+    //   AutoRoute(page: page)
+    // ]),
   ];
 }
