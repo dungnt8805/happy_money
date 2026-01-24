@@ -35,9 +35,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
         resizeToAvoidBottomInset: false,
         routes: containerCubit.state.routes,
         floatingActionButton: FloatingActionButton(
-          onPressed: () =>{
-            appRouter.push(AddTransactionRoute())
-          },
+          onPressed: () => {appRouter.push(CategoriesRoute())},
           shape: CircleBorder(),
           child: const Icon(Icons.add),
         ),

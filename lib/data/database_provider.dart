@@ -8,7 +8,8 @@ class DatabaseProvider {
 
   Future<void> initialize() async {
     if (isInitialize) return;
-    _instance ??= AppDatabase();
+
+    _instance = AppDatabase();
     isInitialize = true;
   }
 }

@@ -15,7 +15,7 @@ LazyDatabase _openConnection() {
   });
 }
 
-@DriftDatabase(tables: [Categories])
+@DriftDatabase(tables: [TableCategories])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 

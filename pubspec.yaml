@@ -71,6 +71,7 @@ dependencies:
   fl_chart: ^1.1.1
   drift: ^2.30.1
   drift_flutter: ^0.2.8
+  font_awesome_flutter: ^10.12.0
 
 dev_dependencies:
   flutter_test:
