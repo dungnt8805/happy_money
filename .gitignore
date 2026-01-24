@@ -47,3 +47,4 @@ app.*.map.json
 *.gr.dart
 *.freezed.dart
 *.chopper.dart
+/lib/app/helpers/injection.config.dart
