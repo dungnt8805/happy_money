@@ -7,17 +7,19 @@ import 'package:happy_money/app/analytics/firebase_analytics.dart';
 import 'package:happy_money/app/app_bloc_provider.dart';
 import 'package:happy_money/app/helpers/injection.dart';
 import 'package:happy_money/app/services/shared_storage/shared_storage.dart';
+import 'package:happy_money/data/database_provider.dart';
 import 'package:happy_money/firebase_options.dart';
 
 void main() => runZonedGuarded(_runApp, _reportError);
 Future<void> _runApp() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  configureDependencies();
   await Future.wait([
     SharedStorage.ensureInitialized(),
     Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
+    getIt<DatabaseProvider>().initialize(),
   ]);
-  configureDependencies();
   runApp(const AppBlocProvider());
 }
 

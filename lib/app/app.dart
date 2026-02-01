@@ -8,6 +8,7 @@ import 'package:happy_money/app/app_responsive.dart';
 import 'package:happy_money/app/const/constants.dart';
 import 'package:happy_money/app/themes/app_theme.dart';
 import 'package:happy_money/l10n/app_localizations.dart';
+import 'package:happy_money/presentation/features/category/controllers/category_bloc.dart';
 import 'package:happy_money/presentation/features/setting/controller/setting_app_cubit/app_setting_cubit.dart';
 import 'package:happy_money/presentation/routes/app_router.dart';
 
@@ -18,33 +19,38 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppSettingCubit, AppSettingState>(
       builder: (context, state) {
-        SystemChrome.setSystemUIOverlayStyle(
-          state.themeMode == ThemeMode.dark
-              ? SystemUiOverlayStyle.light
-              : SystemUiOverlayStyle.dark,
-        );
-        return AppResponsive(
-          child: MaterialApp.router(
-            title: kAppName,
-            theme: AppTheme.light,
-            darkTheme: AppTheme.dark,
-            themeMode: state.themeMode,
-            routeInformationParser: appRouter.defaultRouteParser(),
-            routerDelegate: AutoRouterDelegate(
-              appRouter,
-              navigatorObservers: () => [
-                AutoRouteObserver(),
-                FBAnalytics().observer,
-              ],
-            ),
-            locale: state.appLocale,
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-          ),
+        return BlocBuilder<CategoryBloc, CategoryState>(
+          builder: (context, _) {
+            context.read<CategoryBloc>().add(PreloadCategoryEvent());
+            SystemChrome.setSystemUIOverlayStyle(
+              state.themeMode == ThemeMode.dark
+                  ? SystemUiOverlayStyle.light
+                  : SystemUiOverlayStyle.dark,
+            );
+            return AppResponsive(
+              child: MaterialApp.router(
+                title: kAppName,
+                theme: AppTheme.light,
+                darkTheme: AppTheme.dark,
+                themeMode: state.themeMode,
+                routeInformationParser: appRouter.defaultRouteParser(),
+                routerDelegate: AutoRouterDelegate(
+                  appRouter,
+                  navigatorObservers: () => [
+                    AutoRouteObserver(),
+                    FBAnalytics().observer,
+                  ],
+                ),
+                locale: state.appLocale,
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+              ),
+            );
+          },
         );
       },
     );

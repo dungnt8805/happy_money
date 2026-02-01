@@ -295,4 +295,116 @@ Future<void> seedCategories(AppDatabase db) async {
       ),
     ]);
   });
+  final entertainmentId = await db
+      .into(db.tableCategories)
+      .insert(
+        TableCategoriesCompanion.insert(
+          name: 'Entertainment',
+          type: 'expense',
+          code: Value('entertainment'),
+          iconCode: Value(Icons.gamepad_sharp.codePoint),
+        ),
+      );
+  await db.batch((batch) {
+    batch.insertAll(db.tableCategories, [
+      TableCategoriesCompanion.insert(
+        name: 'Movies',
+        type: 'expense',
+        code: Value('movies'),
+        parentId: Value(entertainmentId),
+        iconCode: Value(Icons.movie_sharp.codePoint),
+      ),
+      TableCategoriesCompanion.insert(
+        name: 'Games',
+        type: 'expense',
+        code: Value('games'),
+        parentId: Value(entertainmentId),
+        iconCode: Value(Icons.videogame_asset_sharp.codePoint),
+      ),
+    ]);
+  });
+  final healthFitnessId = await db
+      .into(db.tableCategories)
+      .insert(
+        TableCategoriesCompanion.insert(
+          name: 'Health & Fitness',
+          type: 'expense',
+          code: Value('health_fitness'),
+          iconCode: Value(Icons.medical_services_sharp.codePoint),
+        ),
+      );
+  await db.batch((batch) {
+    batch.insertAll(db.tableCategories, [
+      TableCategoriesCompanion.insert(
+        name: 'Medicine',
+        type: 'expense',
+        code: Value('medicine'),
+        parentId: Value(healthFitnessId),
+        iconCode: Value(Icons.medication_sharp.codePoint),
+      ),
+      TableCategoriesCompanion.insert(
+        name: 'Sports',
+        type: 'expense',
+        code: Value('sports'),
+        parentId: Value(healthFitnessId),
+        iconCode: Value(Icons.sports_soccer_sharp.codePoint),
+      ),
+      TableCategoriesCompanion.insert(
+        name: 'Doctor',
+        type: 'expense',
+        code: Value('doctor'),
+        parentId: Value(healthFitnessId),
+        iconCode: Value(Icons.healing_sharp.codePoint),
+      ),
+      TableCategoriesCompanion.insert(
+        name: 'Pharmacy',
+        type: 'expense',
+        code: Value('pharmacy'),
+        parentId: Value(healthFitnessId),
+        iconCode: Value(FontAwesomeIcons.pills.codePoint),
+      ),
+      TableCategoriesCompanion.insert(
+        name: 'Personal Care',
+        type: 'expense',
+        code: Value('personal_care'),
+        iconCode: Value(Icons.personal_injury_sharp.codePoint),
+        parentId: Value(healthFitnessId),
+      ),
+    ]);
+  });
+  final familyId = await db
+      .into(db.tableCategories)
+      .insert(
+        TableCategoriesCompanion.insert(
+          name: 'Family',
+          type: 'expense',
+          code: Value('family'),
+          iconCode: Value(Icons.house_sharp.codePoint),
+        ),
+      );
+  await db.batch((batch) {
+    batch.insertAll(db.tableCategories, [
+      TableCategoriesCompanion.insert(
+        name: 'Children & Babies',
+        type: 'expense',
+        code: Value('children_babies'),
+        parentId: Value(familyId),
+        iconCode: Value(Icons.child_friendly_sharp.codePoint),
+      ),
+      TableCategoriesCompanion.insert(
+        name: 'Pets',
+        type: 'expense',
+        code: Value('pets'),
+        parentId: Value(familyId),
+        iconCode: Value(Icons.pets_sharp.codePoint),
+      ),
+      TableCategoriesCompanion.insert(
+        name: 'Home Services',
+        type: 'expense',
+        code: Value('home_services'),
+        parentId: Value(familyId),
+        iconCode: Value(Icons.home_repair_service_sharp.codePoint),
+      ),
+    ]);
+  });
 }

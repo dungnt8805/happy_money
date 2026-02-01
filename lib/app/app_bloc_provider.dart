@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_money/app/app.dart';
 import 'package:happy_money/presentation/features/app_root/container/controller/container_cubit.dart';
+import 'package:happy_money/presentation/features/category/controllers/category_bloc.dart';
 import 'package:happy_money/presentation/features/setting/controller/setting_app_cubit/app_setting_cubit.dart';
 import 'package:happy_money/presentation/features/start/splash/controller/splash_cubit.dart';
 
@@ -15,6 +16,7 @@ class AppBlocProvider extends StatelessWidget {
         BlocProvider(create: (_) => SplashCubit()),
         BlocProvider(create: (_) => ContainerCubit()),
         BlocProvider(create: (_) => AppSettingCubit()),
+        BlocProvider(create: (_) => CategoryBloc()),
       ],
       child: const App(),
     );

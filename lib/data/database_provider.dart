@@ -12,4 +12,5 @@ class DatabaseProvider {
     _instance = AppDatabase();
     isInitialize = true;
   }
+  AppDatabase get instance => _instance;
 }

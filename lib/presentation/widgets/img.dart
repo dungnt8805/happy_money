@@ -179,7 +179,7 @@ class Img extends StatelessWidget {
           alignment: alignment,
           frameBuilder: _frameBuilder,
           package: _package,
-          errorBuilder: (context, _, __) => errorWidget ?? _noImage(),
+          errorBuilder: (context, _, _) => errorWidget ?? _noImage(),
         ),
 
         // Handle network

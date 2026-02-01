@@ -12,4 +12,6 @@ class TableCategories extends Table {
   TextColumn get type => text()();
 
   IntColumn get parentId => integer().nullable()();
+
+  BoolColumn get isUserDefined => boolean().nullable().withDefault(const Constant(false))();
 }
